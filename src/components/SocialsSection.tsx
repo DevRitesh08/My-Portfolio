@@ -50,7 +50,7 @@ const SocialsSection = () => {
             <a
               href="/RITESH_SWAMI_Resume.pdf"
               download="Ritesh_Swami_Resume.pdf"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-foreground border border-border rounded-full hover:border-accent hover:bg-accent/10 hover:text-accent transition-all duration-300 font-medium group"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-full hover:bg-accent-hover transition-all duration-300 font-medium group"
             >
               <FileText size={20} />
               Download Resume

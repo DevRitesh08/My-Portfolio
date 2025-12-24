@@ -48,50 +48,6 @@ const ContactSection = () => {
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.19, 1, 0.22, 1] }}
-            className="flex flex-wrap items-center justify-center gap-8"
-          >
-            <a
-              href="https://github.com/DevRitesh08"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-arrow group inline-flex items-center gap-2 text-lg"
-            >
-              <span>GitHub</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-            </a>
-            <a
-              href="https://www.kaggle.com/riteshswami08"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-arrow group inline-flex items-center gap-2 text-lg"
-            >
-              <span>Kaggle</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-            </a>
-            <a
-              href="https://leetcode.com/u/DevRitesh08/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-arrow group inline-flex items-center gap-2 text-lg"
-            >
-              <span>LeetCode</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-            </a>
-            <a
-              href="https://twitter.com/riteshswami08"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-arrow group inline-flex items-center gap-2 text-lg"
-            >
-              <span>Twitter</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-            </a>
-          </motion.div>
         </div>
       </div>
     </section>
