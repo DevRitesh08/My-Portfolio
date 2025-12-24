@@ -35,7 +35,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.5, ease: [0.19, 1, 0.22, 1] }}
             className="hero-title text-foreground"
           >
-            Swami—
+            Swami
           </motion.h1>
         </div>
 
