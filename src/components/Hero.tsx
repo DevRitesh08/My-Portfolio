@@ -54,8 +54,8 @@ const Hero = () => {
           <p className="text-muted-foreground text-xl">Your Image Here</p>
         </div>
         
-        {/* Globe positioned bottom left - above marquee */}
-        <div className="absolute bottom-44 left-6 md:left-10 z-10">
+        {/* Globe positioned between label and marquee - left side */}
+        <div className="absolute left-4 sm:left-6 md:left-10 z-10" style={{ top: '45%', transform: 'translateY(-50%)' }}>
           <GlobeComponent />
         </div>
         
@@ -64,22 +64,22 @@ const Hero = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: [0.19, 1, 0.22, 1] }}
-          className="absolute right-6 md:right-10 z-10"
+          className="absolute right-4 sm:right-6 md:right-10 z-10 max-w-[60%] sm:max-w-none"
           style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
           {/* Arrow */}
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="text-foreground/60 mb-8"
+            className="text-foreground/60 mb-4 sm:mb-8"
           >
-            <ArrowDown size={24} className="rotate-[-45deg]" />
+            <ArrowDown size={20} className="rotate-[-45deg] sm:w-6 sm:h-6" />
           </motion.div>
           
           {/* Role text */}
           <div>
-            <p className="text-xl md:text-2xl lg:text-3xl text-foreground/60">Aspiring</p>
-            <p className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium">Data Scientist & ML Engineer</p>
+            <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-foreground/60">Aspiring</p>
+            <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-foreground font-medium leading-tight">Data Scientist & ML Engineer</p>
           </div>
         </motion.div>
 
