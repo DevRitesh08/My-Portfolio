@@ -26,16 +26,9 @@ const Hero = () => {
           <span className="section-label">3rd Year AI & Data Science Student (2023-27)</span>
         </motion.div>
 
-        {/* Hindi welcome text - centered */}
+        {/* Placeholder for user's image - full screen background */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.19, 1, 0.22, 1] }}
-            className="text-muted-foreground text-3xl md:text-4xl lg:text-5xl font-medium"
-          >
-            • स्वागत है
-          </motion.p>
+          <p className="text-muted-foreground text-xl">Your Image Here</p>
         </div>
         
         {/* Globe positioned bottom left */}
