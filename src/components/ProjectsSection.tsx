@@ -3,190 +3,96 @@ import { motion } from 'framer-motion';
 import ProjectCard, { Project } from './ProjectCard';
 import { ArrowUpRight } from 'lucide-react';
 
-// Categorize repositories based on topics and names
-const categorizeRepo = (name: string, topics: string[], description: string): string => {
-  const lowerName = name.toLowerCase();
-  const lowerDesc = (description || '').toLowerCase();
-  const allTopics = topics.map(t => t.toLowerCase());
-  
-  // NLP / AI
-  if (
-    allTopics.some(t => ['nlp', 'natural-language-processing', 'chatbot', 'text-classification', 'sentiment-analysis', 'transformers', 'llm'].includes(t)) ||
-    lowerName.includes('nlp') ||
-    lowerName.includes('chat') ||
-    lowerDesc.includes('nlp') ||
-    lowerDesc.includes('natural language')
-  ) {
-    return 'NLP & AI';
-  }
-  
-  // Machine Learning
-  if (
-    allTopics.some(t => ['machine-learning', 'ml', 'deep-learning', 'neural-network', 'tensorflow', 'pytorch', 'scikit-learn'].includes(t)) ||
-    lowerName.includes('machine-learning') ||
-    lowerName.includes('ml') ||
-    lowerName.includes('deep') ||
-    lowerDesc.includes('machine learning')
-  ) {
-    return 'Machine Learning';
-  }
-  
-  // Data Analysis / Dashboard
-  if (
-    allTopics.some(t => ['data-analysis', 'data-science', 'pandas', 'numpy', 'visualization', 'dashboard', 'analytics', 'eda'].includes(t)) ||
-    lowerName.includes('dashboard') ||
-    lowerName.includes('analysis') ||
-    lowerName.includes('analytics') ||
-    lowerName.includes('startup') ||
-    lowerDesc.includes('dashboard') ||
-    lowerDesc.includes('analysis')
-  ) {
-    return 'Data Analysis';
-  }
-  
-  // Web Development
-  if (
-    allTopics.some(t => ['web', 'react', 'javascript', 'typescript', 'html', 'css', 'frontend', 'backend', 'nodejs'].includes(t)) ||
-    lowerName.includes('web') ||
-    lowerName.includes('react') ||
-    lowerName.includes('frontend') ||
-    lowerDesc.includes('web')
-  ) {
-    return 'Web Development';
-  }
-  
-  // Python
-  if (
-    allTopics.includes('python') ||
-    lowerName.includes('python')
-  ) {
-    return 'Python';
-  }
-  
-  // SQL / Database
-  if (
-    allTopics.includes('sql') ||
-    lowerName.includes('sql') ||
-    lowerDesc.includes('database')
-  ) {
-    return 'Database';
-  }
-  
-  return 'Other';
-};
+// Define specific projects with professional images
+const specificProjects: Project[] = [
+  {
+    id: 'nlp-app',
+    name: 'NLP Application',
+    description: 'Natural Language Processing application for text analysis and sentiment detection',
+    category: 'NLP & AI',
+    url: 'https://github.com/DevRitesh08',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=600&fit=crop',
+    year: '2024',
+  },
+  {
+    id: 'startup-dashboard',
+    name: 'Indian Startup Dashboard',
+    description: 'Interactive dashboard analyzing the Indian startup ecosystem with data visualization',
+    category: 'Data Analysis',
+    url: 'https://github.com/DevRitesh08/Indian-Startup-Dashboard',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    year: '2024',
+  },
+  {
+    id: 'oop-project',
+    name: 'OOP Complete Project',
+    description: 'Comprehensive Object-Oriented Programming project demonstrating design patterns',
+    category: 'Python & OOP',
+    url: 'https://github.com/DevRitesh08/OOPs-Complete/blob/master/In%20Python/oop_project.ipynb',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
+    year: '2024',
+  },
+];
 
-// Get appropriate image for category
-const getCategoryImage = (category: string, index: number): string => {
-  const images: Record<string, string[]> = {
-    'NLP & AI': [
-      'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&h=600&fit=crop',
-    ],
-    'Machine Learning': [
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1527474305487-b87b222841cc?w=800&h=600&fit=crop',
-    ],
-    'Data Analysis': [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-    ],
-    'Web Development': [
-      'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
-    ],
-    'Python': [
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=600&fit=crop',
-    ],
-    'Database': [
-      'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&h=600&fit=crop',
-    ],
-    'Other': [
-      'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=600&fit=crop',
-    ],
-  };
-  
-  const categoryImages = images[category] || images['Other'];
-  return categoryImages[index % categoryImages.length];
-};
+// Professional images for CSS projects
+const cssProjectImages = [
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1522542550221-31fd8575f4ec?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1545665277-5937489579f2?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
+  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
+];
 
-const categories = ['All', 'Machine Learning', 'NLP & AI', 'Data Analysis', 'Web Development', 'Python'];
+const categories = ['All', 'NLP & AI', 'Data Analysis', 'Python & OOP', 'Web Development'];
 
 const ProjectsSection = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [webDevProjects, setWebDevProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>(specificProjects);
   const [activeCategory, setActiveCategory] = useState('All');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchCSSProjects = async () => {
       try {
-        // Fetch main repos
-        const mainResponse = await fetch('https://api.github.com/users/DevRitesh08/repos?per_page=50&sort=updated');
-        const mainRepos = await mainResponse.json();
-        
-        // Fetch WebDev repos
-        const webDevResponse = await fetch('https://api.github.com/repos/DevRitesh08/WebDev/contents');
-        let webDevItems: any[] = [];
-        try {
-          webDevItems = await webDevResponse.json();
-        } catch (e) {
-          console.log('WebDev folder not accessible');
+        // Fetch CSS Projects from WebDev repo
+        const response = await fetch('https://api.github.com/repos/DevRitesh08/WebDev/contents/CSS/Projects');
+        const items = await response.json();
+
+        if (Array.isArray(items)) {
+          const cssProjects: Project[] = items
+            .filter((item: any) => item.type === 'dir')
+            .map((item: any, index: number) => ({
+              id: `css-${item.name}`,
+              name: item.name.replace(/-/g, ' ').replace(/_/g, ' '),
+              description: 'Creative CSS project showcasing modern web design techniques',
+              category: 'Web Development',
+              url: `https://github.com/DevRitesh08/WebDev/tree/main/CSS/Projects/${item.name}`,
+              image: cssProjectImages[index % cssProjectImages.length],
+              year: '2024',
+            }));
+
+          setProjects([...specificProjects, ...cssProjects]);
         }
-
-        // Process main repos
-        const mainProjects: Project[] = mainRepos
-          .filter((repo: any) => !repo.fork && repo.name !== 'WebDev' && repo.name !== 'DevRitesh08')
-          .map((repo: any, index: number) => {
-            const category = categorizeRepo(repo.name, repo.topics || [], repo.description || '');
-            return {
-              id: repo.id.toString(),
-              name: repo.name.replace(/-/g, ' ').replace(/_/g, ' '),
-              description: repo.description || 'Data Science project',
-              category,
-              url: repo.html_url,
-              image: getCategoryImage(category, index),
-              year: new Date(repo.created_at).getFullYear().toString(),
-              topics: repo.topics || [],
-            };
-          });
-
-        // Process WebDev as individual projects if they're directories
-        const webProjects: Project[] = Array.isArray(webDevItems) 
-          ? webDevItems
-              .filter((item: any) => item.type === 'dir')
-              .map((item: any, index: number) => ({
-                id: `webdev-${item.name}`,
-                name: item.name.replace(/-/g, ' ').replace(/_/g, ' '),
-                description: 'Web Development project',
-                category: 'Web Development',
-                url: `https://github.com/DevRitesh08/WebDev/tree/main/${item.name}`,
-                image: getCategoryImage('Web Development', index),
-                year: '2024',
-              }))
-          : [];
-
-        setProjects(mainProjects);
-        setWebDevProjects(webProjects);
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error('Error fetching CSS projects:', error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchProjects();
+    fetchCSSProjects();
   }, []);
 
-  const allProjects = [...projects, ...webDevProjects];
-  
   const filteredProjects = activeCategory === 'All' 
-    ? allProjects.slice(0, 8)
-    : allProjects.filter(p => p.category === activeCategory);
+    ? projects 
+    : projects.filter(p => p.category === activeCategory);
 
   const categoryCounts = categories.reduce((acc, cat) => {
     acc[cat] = cat === 'All' 
-      ? allProjects.length 
-      : allProjects.filter(p => p.category === cat).length;
+      ? projects.length 
+      : projects.filter(p => p.category === cat).length;
     return acc;
   }, {} as Record<string, number>);
 
@@ -201,9 +107,9 @@ const ProjectsSection = () => {
           transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
           className="mb-12 md:mb-16"
         >
-          <span className="section-label block mb-4">Recent Projects</span>
+          <span className="section-label block mb-4">Featured Projects</span>
           <h2 className="text-3xl md:text-5xl font-medium text-foreground max-w-3xl leading-tight">
-            Building intelligent systems & data-driven solutions
+            Building intelligent systems & creative web experiences
           </h2>
         </motion.div>
 
@@ -262,10 +168,7 @@ const ProjectsSection = () => {
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-4 px-8 py-4 border border-border rounded-full text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
           >
-            <span>More projects</span>
-            <span className="text-sm text-muted-foreground group-hover:text-background/70">
-              {allProjects.length}+
-            </span>
+            <span>More projects on GitHub</span>
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
           </a>
         </motion.div>

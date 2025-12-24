@@ -1,83 +1,96 @@
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Mail } from 'lucide-react';
+import { ArrowUpRight, Mail, Send } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 md:py-32">
+    <section id="contact" className="py-24 md:py-32 bg-background-secondary">
       <div className="container mx-auto px-6 md:px-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.span
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+          >
+            <span className="section-label block mb-6">Get in Touch</span>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium text-foreground leading-tight mb-8">
+              Looking for an <span className="text-accent">intern</span> or <span className="text-accent">collaborator</span>?
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+              I'm actively seeking internship opportunities and exciting projects. 
+              Let's connect and build something amazing together.
+            </p>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-            className="section-label block mb-8"
-          >
-            Get in Touch
-          </motion.span>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
-            className="text-4xl md:text-6xl lg:text-7xl font-medium text-foreground leading-tight mb-8"
-          >
-            Let's work together
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
-            className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
-          >
-            Have a project in mind or just want to chat about data science and machine learning? 
-            I'm always open to discussing new opportunities.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <a
               href="mailto:riteshswami08@gmail.com"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-foreground text-background rounded-full font-medium hover:bg-accent transition-colors duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-full hover:bg-accent-hover transition-colors duration-300 font-medium text-lg"
             >
-              <Mail size={18} />
-              <span>riteshswami08@gmail.com</span>
-              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+              <Mail size={20} />
+              <span>Hire Me</span>
+              <ArrowUpRight size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ritesh-swami-61ab53309/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 border border-border text-foreground rounded-full hover:bg-foreground hover:text-background transition-all duration-300 font-medium text-lg"
+            >
+              <Send size={18} />
+              <span>Connect on LinkedIn</span>
             </a>
           </motion.div>
 
-          {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.19, 1, 0.22, 1] }}
-            className="flex items-center justify-center gap-8 mt-16"
+            className="flex flex-wrap items-center justify-center gap-8"
           >
-            {[
-              { name: 'GitHub', url: 'https://github.com/DevRitesh08' },
-              { name: 'LinkedIn', url: 'https://www.linkedin.com/in/ritesh-swami-61ab53309/' },
-              { name: 'Kaggle', url: 'https://www.kaggle.com/riteshswami08' },
-              { name: 'LeetCode', url: 'https://leetcode.com/u/DevRitesh08/' },
-            ].map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-accent animated-underline transition-colors duration-300"
-              >
-                {social.name}
-              </a>
-            ))}
+            <a
+              href="https://github.com/DevRitesh08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-arrow group inline-flex items-center gap-2 text-lg"
+            >
+              <span>GitHub</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </a>
+            <a
+              href="https://www.kaggle.com/riteshswami08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-arrow group inline-flex items-center gap-2 text-lg"
+            >
+              <span>Kaggle</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </a>
+            <a
+              href="https://leetcode.com/u/DevRitesh08/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-arrow group inline-flex items-center gap-2 text-lg"
+            >
+              <span>LeetCode</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </a>
+            <a
+              href="https://twitter.com/riteshswami08"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-arrow group inline-flex items-center gap-2 text-lg"
+            >
+              <span>Twitter</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </a>
           </motion.div>
         </div>
       </div>
