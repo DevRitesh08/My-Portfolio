@@ -22,15 +22,28 @@ const socials = [
 
 const Header = ({ isDark, toggleTheme }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setIsScrolled(currentScrollY > 50);
+      
+      // Hide header when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -44,10 +57,10 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
     <>
       <motion.header
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
+        animate={{ y: isHidden && !isMenuOpen ? -100 : 0 }}
+        transition={{ duration: 0.3, ease: [0.19, 1, 0.22, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'py-4' : 'py-6'
+          isScrolled ? 'py-4 bg-background/80 backdrop-blur-md border-b border-border/50' : 'py-6'
         }`}
       >
         <div className="container mx-auto px-6 md:px-10">
