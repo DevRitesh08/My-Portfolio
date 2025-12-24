@@ -2,95 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* =====================================================
+   Design System - Dennis Snellenberg Inspired
+   Clean, minimal, professional aesthetic
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    /* Core Colors - Light Mode */
+    --background: 0 0% 96%;
+    --background-secondary: 0 0% 93%;
+    --foreground: 225 10% 12%;
+    
+    --card: 0 0% 98%;
+    --card-foreground: 225 10% 12%;
+    
+    --popover: 0 0% 98%;
+    --popover-foreground: 225 10% 12%;
+    
+    /* Primary - Deep charcoal */
+    --primary: 225 10% 12%;
+    --primary-foreground: 0 0% 96%;
+    
+    /* Accent - Signature blue */
+    --accent: 233 79% 59%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 235 74% 52%;
+    
+    /* Secondary */
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 225 10% 12%;
+    
+    /* Muted */
+    --muted: 0 0% 60%;
+    --muted-foreground: 0 0% 40%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 225 10% 12% / 0.12;
+    --input: 225 10% 12% / 0.12;
+    --ring: 233 79% 59%;
+    
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Loader */
+    --loader-bg: 225 10% 5%;
+    --loader-text: 0 0% 100%;
+    
+    /* Custom Transitions */
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --duration-fast: 0.3s;
+    --duration-medium: 0.6s;
+    --duration-slow: 1s;
+    
+    /* Typography scale */
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Container */
+    --container-padding: clamp(20px, 4vw, 80px);
+    --header-height: 80px;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 225 10% 5%;
+    --background-secondary: 225 10% 8%;
+    --foreground: 0 0% 96%;
+    
+    --card: 225 10% 8%;
+    --card-foreground: 0 0% 96%;
+    
+    --popover: 225 10% 8%;
+    --popover-foreground: 0 0% 96%;
+    
+    --primary: 0 0% 96%;
+    --primary-foreground: 225 10% 5%;
+    
+    --accent: 233 79% 59%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 235 74% 65%;
+    
+    --secondary: 225 10% 12%;
+    --secondary-foreground: 0 0% 96%;
+    
+    --muted: 0 0% 40%;
+    --muted-foreground: 0 0% 60%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 100% / 0.12;
+    --input: 0 0% 100% / 0.12;
+    --ring: 233 79% 59%;
+    
+    --loader-bg: 0 0% 2%;
+    --loader-text: 0 0% 100%;
   }
 }
 
@@ -98,8 +107,168 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
-  body {
-    @apply bg-background text-foreground;
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: var(--font-main);
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  
+  body.loading {
+    overflow: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent text-accent-foreground;
+  }
+}
+
+@layer utilities {
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Hero typography */
+  .hero-title {
+    font-size: clamp(3rem, 12vw, 10rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+  }
+  
+  .hero-title-faded {
+    opacity: 0.15;
+  }
+  
+  /* Section label */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    @apply text-muted-foreground;
+  }
+  
+  /* Link arrow animation */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-foreground transition-colors duration-300;
+  }
+  
+  .link-arrow:hover {
+    @apply text-accent;
+  }
+  
+  .link-arrow svg {
+    @apply transition-transform duration-300;
+  }
+  
+  .link-arrow:hover svg {
+    transform: translate(3px, -3px);
+  }
+  
+  /* Project card hover */
+  .project-card-image {
+    @apply transition-transform duration-700;
+    transition-timing-function: var(--ease-out-expo);
+  }
+  
+  .project-card:hover .project-card-image {
+    transform: scale(1.05);
+  }
+  
+  /* Gradient overlays */
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      hsl(var(--background) / 0.5) 100%
+    );
+  }
+  
+  /* Smooth underline */
+  .animated-underline {
+    position: relative;
+  }
+  
+  .animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    @apply bg-accent;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-out-quart);
+  }
+  
+  .animated-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* Loader styles */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: hsl(var(--loader-bg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.loader.hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Category filter pills */
+.filter-pill {
+  @apply px-4 py-2 text-sm rounded-full transition-all duration-300;
+  @apply border border-border text-muted-foreground;
+}
+
+.filter-pill:hover {
+  @apply border-foreground text-foreground;
+}
+
+.filter-pill.active {
+  @apply bg-foreground text-background border-foreground;
+}
+
+/* Project card overlay */
+.project-overlay {
+  @apply absolute inset-0 bg-foreground/0 transition-all duration-500;
+}
+
+.project-card:hover .project-overlay {
+  @apply bg-foreground/10;
 }
