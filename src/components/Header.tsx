@@ -10,6 +10,7 @@ interface HeaderProps {
 const navLinks = [
   { name: 'Work', href: '#work' },
   { name: 'About', href: '#about' },
+  { name: 'Resume', href: '/RITESH_SWAMI_Resume.pdf' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -83,6 +84,8 @@ const Header = ({ isDark, toggleTheme }: HeaderProps) => {
                 <a
                   key={link.name}
                   href={link.href}
+                  target={link.href.startsWith('/') ? '_blank' : undefined}
+                  rel={link.href.startsWith('/') ? 'noopener noreferrer' : undefined}
                   className="text-sm text-foreground animated-underline hover:text-accent transition-colors duration-300"
                 >
                   {link.name}
