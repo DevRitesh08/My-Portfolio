@@ -1,13 +1,18 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import GlobeComponent from './GlobeComponent';
+import { useRef } from 'react';
 
 const Hero = () => {
   const nameText = "Ritesh Swami";
   const repeatedName = Array(10).fill(`${nameText} — `).join('');
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  const { scrollY } = useScroll();
+  const marqueeX = useTransform(scrollY, [0, 1000], [0, -500]);
 
   return (
-    <section className="min-h-screen flex flex-col justify-center pt-20 pb-16 relative overflow-hidden">
+    <section ref={sectionRef} className="min-h-screen flex flex-col justify-center pt-20 pb-16 relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-10">
         {/* Label */}
         <motion.div
@@ -49,24 +54,29 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Rotating Name Marquee */}
+      {/* Rotating Name Marquee with scroll-based direction */}
       <div className="w-full overflow-hidden py-4">
         <motion.div
-          animate={{ x: [0, -50 + '%'] }}
-          transition={{ 
-            duration: 30, 
-            repeat: Infinity, 
-            ease: 'linear',
-            repeatType: 'loop'
-          }}
-          className="flex whitespace-nowrap"
+          style={{ x: marqueeX }}
+          className="marquee-container"
         >
-          <span className="hero-title text-foreground hero-title-faded">
-            {repeatedName}
-          </span>
-          <span className="hero-title text-foreground hero-title-faded">
-            {repeatedName}
-          </span>
+          <motion.div
+            animate={{ x: [0, -50 + '%'] }}
+            transition={{ 
+              duration: 15, 
+              repeat: Infinity, 
+              ease: 'linear',
+              repeatType: 'loop'
+            }}
+            className="flex whitespace-nowrap"
+          >
+            <span className="hero-title text-foreground hero-title-faded">
+              {repeatedName}
+            </span>
+            <span className="hero-title text-foreground hero-title-faded">
+              {repeatedName}
+            </span>
+          </motion.div>
         </motion.div>
       </div>
 
