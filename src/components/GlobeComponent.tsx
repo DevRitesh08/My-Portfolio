@@ -14,13 +14,13 @@ const GlobeComponent = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="px-6 py-5">
-        <p className="text-background text-base font-medium leading-tight">
+      <div className="px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-5">
+        <p className="text-background text-xs sm:text-sm md:text-base font-medium leading-tight">
           Located<br />in India
         </p>
       </div>
       <div 
-        className={`relative w-24 h-24 rounded-full flex items-center justify-center -mr-1 transition-all duration-700 ${
+        className={`relative w-14 h-14 sm:w-18 sm:h-18 md:w-24 md:h-24 rounded-full flex items-center justify-center -mr-1 transition-all duration-700 ${
           isHovered ? 'globe-gradient' : 'bg-background-secondary'
         }`}
       >
@@ -29,7 +29,7 @@ const GlobeComponent = () => {
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         >
           <Globe 
-            className={`w-12 h-12 transition-colors duration-500 ${
+            className={`w-7 h-7 sm:w-9 sm:h-9 md:w-12 md:h-12 transition-colors duration-500 ${
               isHovered ? 'text-white' : 'text-muted-foreground'
             }`} 
             strokeWidth={1.5} 
