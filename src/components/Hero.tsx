@@ -1,16 +1,39 @@
-import { motion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform, useVelocity, useAnimationFrame } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import GlobeComponent from './GlobeComponent';
+import { useRef } from 'react';
 
 const Hero = () => {
   const nameText = "Ritesh Swami";
   const repeatedName = Array(12).fill(`${nameText} — `).join('');
   
+  const baseX = useRef(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
   const smoothVelocity = useSpring(scrollVelocity, { stiffness: 400, damping: 90 });
-  const velocityFactor = useTransform(smoothVelocity, [-1000, 0, 1000], [-2, 0, 2]);
-  const baseX = useTransform(scrollY, [0, 3000], [0, -1500]);
+  const velocityFactor = useTransform(smoothVelocity, [-1000, 0, 1000], [5, 1, -3]);
+  
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  
+  useAnimationFrame((_, delta) => {
+    const baseSpeed = -50; // pixels per second (negative = move left)
+    const velocityMultiplier = velocityFactor.get();
+    const moveBy = (baseSpeed * velocityMultiplier * delta) / 1000;
+    
+    baseX.current += moveBy;
+    
+    // Reset position for seamless loop
+    if (baseX.current <= -2000) {
+      baseX.current = 0;
+    }
+    if (baseX.current >= 0) {
+      baseX.current = -2000;
+    }
+    
+    if (marqueeRef.current) {
+      marqueeRef.current.style.transform = `translateX(${baseX.current}px)`;
+    }
+  });
   
   return (
     <section className="min-h-screen flex flex-col relative overflow-hidden">
@@ -62,23 +85,17 @@ const Hero = () => {
 
         {/* Rotating Name Marquee - overlaying bottom of image */}
         <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden py-6">
-          <motion.div
-            style={{ x: baseX }}
-            className="flex whitespace-nowrap"
+          <div
+            ref={marqueeRef}
+            className="flex whitespace-nowrap will-change-transform"
           >
-            <motion.span 
-              className="hero-title text-foreground/20"
-              style={{ x: velocityFactor }}
-            >
+            <span className="hero-title text-foreground/20">
               {repeatedName}
-            </motion.span>
-            <motion.span 
-              className="hero-title text-foreground/20"
-              style={{ x: velocityFactor }}
-            >
+            </span>
+            <span className="hero-title text-foreground/20">
               {repeatedName}
-            </motion.span>
-          </motion.div>
+            </span>
+          </div>
         </div>
       </div>
     </section>
