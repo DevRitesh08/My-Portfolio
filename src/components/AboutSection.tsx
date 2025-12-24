@@ -40,7 +40,7 @@ const AboutSection = () => {
           transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
           className="mb-20"
         >
-          <span className="section-label block mb-6">About</span>
+          <span className="section-label block mb-6 text-accent font-semibold">About</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight mb-8">
             Building the future with data, one model at a time
           </h2>
@@ -95,7 +95,7 @@ const AboutSection = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
           className="mb-20 pt-12 border-t border-border"
         >
-          <span className="section-label block mb-8">Skills & Technologies</span>
+          <span className="section-label block mb-8 text-accent font-semibold">Skills & Technologies</span>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, catIndex) => (
@@ -126,8 +126,8 @@ const AboutSection = () => {
                         delay: 0.4 + catIndex * 0.1 + skillIndex * 0.05,
                         ease: [0.19, 1, 0.22, 1],
                       }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground hover:border-accent hover:text-accent transition-colors duration-300 cursor-default"
+                      whileHover={{ scale: 1.08, y: -3 }}
+                      className="px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground hover:border-accent hover:text-accent hover:bg-accent/10 hover:shadow-md transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </motion.span>
@@ -146,10 +146,13 @@ const AboutSection = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.19, 1, 0.22, 1] }}
           className="pt-12 border-t border-border"
         >
-          <span className="section-label block mb-8">Education</span>
+          <span className="section-label block mb-8 text-accent font-semibold">Education</span>
           <div className="grid md:grid-cols-3 gap-6">
             {/* B.Tech */}
-            <div className="border-l-2 border-accent pl-6">
+            <motion.div 
+              whileHover={{ scale: 1.02, x: 4 }}
+              className="border-l-2 border-accent pl-6 hover:bg-accent/5 rounded-r-lg py-3 transition-all duration-300 cursor-default"
+            >
               <h3 className="text-lg font-medium text-foreground mb-1">
                 B.Tech in AI & Data Science
               </h3>
@@ -159,10 +162,13 @@ const AboutSection = () => {
               <p className="text-muted-foreground">
                 CGPA: <span className="text-accent font-medium">8.0</span>
               </p>
-            </div>
+            </motion.div>
 
             {/* 12th */}
-            <div className="border-l-2 border-border pl-6 hover:border-accent transition-colors">
+            <motion.div 
+              whileHover={{ scale: 1.02, x: 4 }}
+              className="border-l-2 border-border pl-6 hover:border-accent hover:bg-accent/5 rounded-r-lg py-3 transition-all duration-300 cursor-default"
+            >
               <h3 className="text-lg font-medium text-foreground mb-1">
                 Class 12th (CBSE)
               </h3>
@@ -172,10 +178,13 @@ const AboutSection = () => {
               <p className="text-muted-foreground">
                 Percentage: <span className="text-accent font-medium">88.4%</span>
               </p>
-            </div>
+            </motion.div>
 
             {/* 10th */}
-            <div className="border-l-2 border-border pl-6 hover:border-accent transition-colors">
+            <motion.div 
+              whileHover={{ scale: 1.02, x: 4 }}
+              className="border-l-2 border-border pl-6 hover:border-accent hover:bg-accent/5 rounded-r-lg py-3 transition-all duration-300 cursor-default"
+            >
               <h3 className="text-lg font-medium text-foreground mb-1">
                 Class 10th (CBSE)
               </h3>
@@ -185,7 +194,7 @@ const AboutSection = () => {
               <p className="text-muted-foreground">
                 Percentage: <span className="text-accent font-medium">87.6%</span>
               </p>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
