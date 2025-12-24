@@ -26,9 +26,16 @@ const Hero = () => {
           <span className="section-label">3rd Year AI & Data Science Student (2023-27)</span>
         </motion.div>
 
-        {/* Placeholder for user's image - full screen background */}
+        {/* Hindi welcome text - centered */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-muted-foreground text-xl">Your Image Here</p>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: [0.19, 1, 0.22, 1] }}
+            className="text-muted-foreground text-3xl md:text-4xl lg:text-5xl font-medium"
+          >
+            • स्वागत है
+          </motion.p>
         </div>
         
         {/* Globe positioned bottom left */}
@@ -36,31 +43,28 @@ const Hero = () => {
           <GlobeComponent />
         </div>
         
-        {/* Scroll arrow - positioned center right */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="absolute top-1/2 right-6 md:right-10 -translate-y-1/2 z-10"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="text-foreground/60"
-          >
-            <ArrowDown size={24} className="rotate-[-45deg]" />
-          </motion.div>
-        </motion.div>
-        
-        {/* Role text positioned on right - joined as one unit */}
+        {/* Role text with arrow - joined together on right side */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: [0.19, 1, 0.22, 1] }}
-          className="absolute bottom-32 right-6 md:right-10 z-10"
+          className="absolute right-6 md:right-10 z-10"
+          style={{ top: '50%', transform: 'translateY(-50%)' }}
         >
-          <p className="text-xl md:text-2xl lg:text-3xl text-foreground/60">Aspiring</p>
-          <p className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium">Data Scientist & ML Engineer</p>
+          {/* Arrow */}
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="text-foreground/60 mb-8"
+          >
+            <ArrowDown size={24} className="rotate-[-45deg]" />
+          </motion.div>
+          
+          {/* Role text */}
+          <div>
+            <p className="text-xl md:text-2xl lg:text-3xl text-foreground/60">Aspiring</p>
+            <p className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium">Data Scientist & ML Engineer</p>
+          </div>
         </motion.div>
 
         {/* Rotating Name Marquee - overlaying bottom of image */}
