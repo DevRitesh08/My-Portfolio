@@ -40,7 +40,7 @@ const SocialsSection = () => {
             transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
             viewport={{ once: true }}
           >
-            <span className="section-label block mb-6">Resume</span>
+            <span className="section-label block mb-6 text-accent font-semibold">Resume</span>
             <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-6">
               Download my resume
             </h2>
@@ -50,7 +50,7 @@ const SocialsSection = () => {
             <a
               href="/RITESH_SWAMI_Resume.pdf"
               download="Ritesh_Swami_Resume.pdf"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-full hover:bg-accent-hover transition-colors duration-300 font-medium group"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-secondary text-foreground border border-border rounded-full hover:border-accent hover:bg-accent/10 hover:text-accent transition-all duration-300 font-medium group"
             >
               <FileText size={20} />
               Download Resume
@@ -65,7 +65,7 @@ const SocialsSection = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.19, 1, 0.22, 1] }}
             viewport={{ once: true }}
           >
-            <span className="section-label block mb-6">Connect</span>
+            <span className="section-label block mb-6 text-accent font-semibold">Connect</span>
             <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-8">
               Find me online
             </h2>
