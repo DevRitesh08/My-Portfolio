@@ -54,8 +54,8 @@ const Hero = () => {
           <p className="text-muted-foreground text-xl">Your Image Here</p>
         </div>
         
-        {/* Globe positioned bottom left */}
-        <div className="absolute bottom-32 left-6 md:left-10 z-10">
+        {/* Globe positioned bottom left - above marquee */}
+        <div className="absolute bottom-44 left-6 md:left-10 z-10">
           <GlobeComponent />
         </div>
         
