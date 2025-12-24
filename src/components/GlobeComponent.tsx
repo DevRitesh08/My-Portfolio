@@ -20,7 +20,7 @@ const GlobeComponent = () => {
         </p>
       </div>
       <div 
-        className={`relative w-24 h-24 rounded-full flex items-center justify-center mr-2 transition-all duration-700 ${
+        className={`relative w-24 h-24 rounded-full flex items-center justify-center -mr-1 transition-all duration-700 ${
           isHovered ? 'globe-gradient' : 'bg-background-secondary'
         }`}
       >

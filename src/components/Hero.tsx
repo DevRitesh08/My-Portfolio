@@ -52,15 +52,15 @@ const Hero = () => {
           </motion.div>
         </motion.div>
         
-        {/* Role text positioned on right */}
+        {/* Role text positioned on right - joined as one unit */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.7, ease: [0.19, 1, 0.22, 1] }}
-          className="absolute bottom-32 right-6 md:right-10 text-right z-10"
+          className="absolute bottom-32 right-6 md:right-10 z-10"
         >
-          <p className="text-lg md:text-xl text-foreground/60">Aspiring</p>
-          <p className="text-xl md:text-2xl lg:text-3xl text-foreground font-medium">Data Scientist & ML Engineer</p>
+          <p className="text-xl md:text-2xl lg:text-3xl text-foreground/60">Aspiring</p>
+          <p className="text-2xl md:text-3xl lg:text-4xl text-foreground font-medium">Data Scientist & ML Engineer</p>
         </motion.div>
 
         {/* Rotating Name Marquee - overlaying bottom of image */}
