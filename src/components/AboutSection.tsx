@@ -1,10 +1,31 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
-const skills = [
-  'Python', 'Machine Learning', 'Deep Learning', 'NLP',
-  'TensorFlow', 'PyTorch', 'Scikit-learn', 'Pandas',
-  'SQL', 'Data Visualization', 'Statistics', 'Power BI',
+const skillCategories = [
+  {
+    title: 'Programming',
+    skills: ['C++', 'Python', 'SQL', 'JavaScript'],
+  },
+  {
+    title: 'Core Concepts',
+    skills: ['OOPs', 'DBMS', 'Statistics', 'Data Structures'],
+  },
+  {
+    title: 'Machine Learning',
+    skills: ['ML Algorithms', 'Scikit-learn', 'Deep Learning', 'NLP'],
+  },
+  {
+    title: 'Data Science',
+    skills: ['Pandas', 'NumPy', 'Data Visualization', 'Matplotlib', 'Seaborn'],
+  },
+  {
+    title: 'Web Development',
+    skills: ['HTML', 'CSS', 'React', 'Tailwind CSS'],
+  },
+  {
+    title: 'Tools',
+    skills: ['Git', 'Jupyter', 'VS Code', 'Power BI'],
+  },
 ];
 
 const AboutSection = () => {
@@ -21,92 +42,21 @@ const AboutSection = () => {
           >
             <span className="section-label block mb-6">About</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight mb-8">
-              I transform complex data into actionable insights that drive business growth
+              Building the future with data, one model at a time
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              As a Data Scientist and ML Engineer based in India, I specialize in building 
-              intelligent systems that solve real-world problems. From predictive models 
-              to NLP applications, I bring data to life through innovative solutions.
+              I'm a passionate Computer Science student with a strong foundation in programming 
+              and a deep interest in Data Science and Machine Learning. I love turning raw data 
+              into meaningful insights and building intelligent systems.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Currently pursuing my degree while actively working on open-source projects 
-              and sharpening my skills through platforms like Kaggle and LeetCode. Always 
-              eager to take on challenging projects that push the boundaries of what's possible with data.
+            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+              Currently focusing on mastering ML algorithms, exploring NLP, and building 
+              real-world projects that solve actual problems. Always eager to learn and 
+              take on challenging projects.
             </p>
-          </motion.div>
-
-          {/* Right Column */}
-          <div className="space-y-12">
-            {/* Skills */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
-            >
-              <span className="section-label block mb-6">Skills & Technologies</span>
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.4,
-                      delay: 0.3 + index * 0.05,
-                      ease: [0.19, 1, 0.22, 1],
-                    }}
-                    className="px-4 py-2 bg-background border border-border rounded-full text-sm text-foreground"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Experience/Education */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.19, 1, 0.22, 1] }}
-            >
-              <span className="section-label block mb-6">Experience</span>
-              <div className="space-y-6">
-                <div className="border-l-2 border-accent pl-6">
-                  <h3 className="text-lg font-medium text-foreground mb-1">
-                    Data Science Enthusiast
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Self-learning & Open Source • 2023 - Present
-                  </p>
-                  <p className="text-muted-foreground">
-                    Building ML models, contributing to open-source projects, and competing on Kaggle.
-                  </p>
-                </div>
-                <div className="border-l-2 border-border pl-6">
-                  <h3 className="text-lg font-medium text-foreground mb-1">
-                    Undergraduate Student
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    Computer Science • 2022 - Present
-                  </p>
-                  <p className="text-muted-foreground">
-                    Focusing on Data Science, Machine Learning, and Software Engineering fundamentals.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
 
             {/* Profiles */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.19, 1, 0.22, 1] }}
-              className="flex flex-wrap gap-4"
-            >
+            <div className="flex flex-wrap gap-4">
               <a
                 href="https://github.com/DevRitesh08"
                 target="_blank"
@@ -134,6 +84,80 @@ const AboutSection = () => {
                 <span>LeetCode</span>
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
               </a>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Skills */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
+            >
+              <span className="section-label block mb-8">Skills & Technologies</span>
+              
+              <div className="space-y-8">
+                {skillCategories.map((category, catIndex) => (
+                  <motion.div
+                    key={category.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.3 + catIndex * 0.1,
+                      ease: [0.19, 1, 0.22, 1],
+                    }}
+                    className="group"
+                  >
+                    <h3 className="text-sm font-medium text-foreground mb-3 uppercase tracking-wider">
+                      {category.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, skillIndex) => (
+                        <motion.span
+                          key={skill}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{
+                            duration: 0.4,
+                            delay: 0.4 + catIndex * 0.1 + skillIndex * 0.05,
+                            ease: [0.19, 1, 0.22, 1],
+                          }}
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          className="px-4 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground hover:border-accent hover:text-accent transition-colors duration-300 cursor-default"
+                        >
+                          {skill}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Education */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.19, 1, 0.22, 1] }}
+              className="mt-12 pt-12 border-t border-border"
+            >
+              <span className="section-label block mb-6">Education</span>
+              <div className="border-l-2 border-accent pl-6">
+                <h3 className="text-lg font-medium text-foreground mb-1">
+                  Computer Science Student
+                </h3>
+                <p className="text-sm text-muted-foreground mb-2">
+                  Pursuing Bachelor's Degree • Currently Studying
+                </p>
+                <p className="text-muted-foreground">
+                  Focusing on Data Science, Machine Learning, and Software Engineering fundamentals.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
