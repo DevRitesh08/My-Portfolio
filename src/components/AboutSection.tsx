@@ -147,16 +147,45 @@ const AboutSection = () => {
               className="mt-12 pt-12 border-t border-border"
             >
               <span className="section-label block mb-6">Education</span>
-              <div className="border-l-2 border-accent pl-6">
-                <h3 className="text-lg font-medium text-foreground mb-1">
-                  Computer Science Student
-                </h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  Pursuing Bachelor's Degree • Currently Studying
-                </p>
-                <p className="text-muted-foreground">
-                  Focusing on Data Science, Machine Learning, and Software Engineering fundamentals.
-                </p>
+              <div className="space-y-6">
+                {/* B.Tech */}
+                <div className="border-l-2 border-accent pl-6">
+                  <h3 className="text-lg font-medium text-foreground mb-1">
+                    B.Tech in Artificial Intelligence & Data Science
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Arya College, Jaipur • 2023 - 2027
+                  </p>
+                  <p className="text-muted-foreground">
+                    Current CGPA: <span className="text-accent font-medium">8.0</span>
+                  </p>
+                </div>
+
+                {/* 12th */}
+                <div className="border-l-2 border-border pl-6 hover:border-accent transition-colors">
+                  <h3 className="text-lg font-medium text-foreground mb-1">
+                    Class 12th (CBSE)
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Rawat Public School
+                  </p>
+                  <p className="text-muted-foreground">
+                    Percentage: <span className="text-accent font-medium">88.4%</span>
+                  </p>
+                </div>
+
+                {/* 10th */}
+                <div className="border-l-2 border-border pl-6 hover:border-accent transition-colors">
+                  <h3 className="text-lg font-medium text-foreground mb-1">
+                    Class 10th (CBSE)
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Rawat Public School
+                  </p>
+                  <p className="text-muted-foreground">
+                    Percentage: <span className="text-accent font-medium">87.6%</span>
+                  </p>
+                </div>
               </div>
             </motion.div>
           </div>
