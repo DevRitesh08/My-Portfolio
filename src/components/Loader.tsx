@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const greetings = [
-  'Hello',
-  'नमस्ते',
-  'Bonjour',
-  'Hola',
-  'Ciao',
-  'こんにちは',
-  'مرحبا',
+  '• Hello',
+  '• नमस्ते',
+  '• Bonjour',
+  '• Hola',
+  '• Ciao',
+  '• こんにちは',
+  '• स्वागत है',
 ];
 
 interface LoaderProps {
